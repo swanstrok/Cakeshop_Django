@@ -10,10 +10,13 @@ click-repl==0.2.0
 Django==3.2
 django-stubs==1.16.0
 django-stubs-ext==0.8.0
+flower==1.2.0
+humanize==4.6.0
 kombu==5.2.4
 mypy==1.1.1
 mypy-extensions==1.0.0
 Pillow==9.5.0
+prometheus-client==0.16.0
 prompt-toolkit==3.0.38
 psycopg2==2.9.6
 pytz==2023.3
@@ -21,6 +24,7 @@ redis==4.5.4
 six==1.16.0
 sqlparse==0.4.3
 tomli==2.0.1
+tornado==6.2
 types-pytz==2023.3.0.0
 types-PyYAML==6.0.12.9
 typing_extensions==4.5.0
