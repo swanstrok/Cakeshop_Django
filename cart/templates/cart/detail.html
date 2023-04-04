@@ -2,20 +2,20 @@
 {% load static %}
 
 {% block title %}
-  Your shopping cart
+  Ваша корзина
 {% endblock %}
 
 {% block content %}
-  <h1>Your shopping cart</h1>
+  <h1>Ваша корзина</h1>
   <table class="cart">
     <thead>
       <tr>
-        <th>Image</th>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Remove</th>
-        <th>Unit price</th>
-        <th>Price</th>
+        <th>Изображение</th>
+        <th>Название товара</th>
+        <th>Количество</th>
+        <th>Убрать с корзины</th>
+        <th>Цена за штуку</th>
+        <th>Цена</th>
       </tr>
     </thead>
     <tbody>
@@ -36,7 +36,7 @@
                 {% csrf_token %}
               </form>
             </td>
-            <td><a href="{% url 'cart:cart_remove' product.id %}">Remove</a></td>
+            <td><a href="{% url 'cart:cart_remove' product.id %}">Убрать</a></td>
             <td class="num">${{ item.price }}</td>
             <td class="num">${{ item.total_price }}</td>
           </tr>
@@ -50,7 +50,7 @@
     </tbody>
   </table>
   <p class="text-right">
-    <a href="{% url 'shop:product_list' %}" class="button light">Continue shopping</a>
-   <a href="{% url 'orders:order_add' %}" class="button">Checkout</a>
+    <a href="{% url 'shop:product_list' %}" class="button light">Продолжить покупку</a>
+
   </p>
 {% endblock %}
