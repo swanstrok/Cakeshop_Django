@@ -47,6 +47,10 @@ class Cart:
 
         self.save()
 
+    def __len__(self):
+        """Подсчитывает количество всех товаров в корзине"""
+        return sum(item['quantity'] for item in self.cart.values())
+
     def remove(self, product):
         """Удаляет продукт с корзины"""
         product_id = str(product.id)
