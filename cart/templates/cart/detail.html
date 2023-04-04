@@ -43,7 +43,7 @@
         {% endwith %}
       {% endfor %}
       <tr class="total">
-        <td>Total</td>
+        <td>Итого</td>
         <td colspan="4"></td>
         <td class="num">${{ cart.get_total_price }}</td>
       </tr>
@@ -51,6 +51,6 @@
   </table>
   <p class="text-right">
     <a href="{% url 'shop:product_list' %}" class="button light">Продолжить покупку</a>
-
+    <a href="{% url 'orders:order_add' %}" class="button">Заказать</a>
   </p>
 {% endblock %}
