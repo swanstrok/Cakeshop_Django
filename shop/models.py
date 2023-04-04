@@ -16,11 +16,13 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
+        # viewname берется из urls.py
         return reverse(viewname='shop:product_list_by_category', args=[self.slug])
 
 
 class Product(models.Model):
-    category = models.ForeignKey(to=Category, related_name='products', on_delete=models.CASCADE, verbose_name='Категория')
+    category = models.ForeignKey(to=Category, related_name='products', on_delete=models.CASCADE,
+                                 verbose_name='Категория')
     name = models.CharField(max_length=200, db_index=True, verbose_name='Название')
     slug = models.SlugField(max_length=200, db_index=True)
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, verbose_name='Изображение')
@@ -39,3 +41,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        # viewname берется из urls.py
+        return reverse(viewname='shop:product_detail', args=[self.id, self.slug])

@@ -20,3 +20,13 @@ def product_list(request, category_slug=None):
                'products': products}
 
     return render(request, template_name='shop/product/list.html', context=context)
+
+
+def product_detail(request, id, product_slug):
+    """Функция для детального отображения товара"""
+    product = get_object_or_404(Product, id=id, slug=product_slug, available=True)
+    context = {
+        'product': product
+    }
+
+    return render(request, template_name='shop/product/detail.html', context=context)
