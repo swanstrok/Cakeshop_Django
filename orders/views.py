@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .models import *
 from cart.cart import Cart
@@ -6,6 +7,7 @@ from .tasks import order_created
 
 
 # Create your views here.
+@login_required
 def order_add(request):
     cart = Cart(request)
     if request.method == 'POST':
