@@ -8,8 +8,19 @@
 <body>
 <div id="header">
     <a href="/" class="logo">Euphoria</a>
+
+    <div style="text-align:right">
+        {% if user.is_authenticated %}
+            <p>User: {{ user.get_username }} | <a href="{% url 'logout'%}?next={{request.path}}">Logout</a></p>
+        {% else %}
+            <p><a href="{% url 'login'%}?next={{request.path}}">Login</a></p>
+        {% endif %}
+    </div>
+
 </div>
+
 <div id="subheader">
+    {% if user.is_authenticated %}
     <div class="cart">
       {% with total_items=cart|length %}
           {% if cart|length > 0 %}
@@ -23,7 +34,10 @@
           {% endif %}
         {% endwith %}
     </div>
+    {% endif %}
 </div>
+
+
 <div id="content">
     {% block content %}
     {% endblock %}
