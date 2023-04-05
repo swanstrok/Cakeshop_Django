@@ -144,5 +144,8 @@ CART_SESSION_ID = 'cart'
 CELERY_BROKER_URL = "redis://localhost:6379"
 CELERY_RESULT_BACKEND = "redis://localhost:6379"
 
+# EMAIL SETTINGS #
+RECIPIENTS_EMAIL = ['selex1995@yandex.ru']
+DEFAULT_FROM_EMAIL = 'selex1995@yandex.ru'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
