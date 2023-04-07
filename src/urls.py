@@ -7,7 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls', namespace='cart')),
     path('orders/', include('orders.urls', namespace='orders')),
-    path('accounts/', include('django.contrib.auth.urls')),  # Стоковая аутентификация Django
+    path('accounts/', include('users.urls')),
     path('', include('shop.urls', namespace='shop')),
 ]
 
