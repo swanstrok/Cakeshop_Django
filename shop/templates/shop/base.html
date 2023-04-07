@@ -11,9 +11,9 @@
 
     <div style="text-align:right">
         {% if user.is_authenticated %}
-            <p>User: {{ user.get_username }} | <a href="{% url 'logout'%}?next={{request.path}}">Logout</a></p>
+            <p>Пользователь: {{ user.get_username }} | <a href="{% url 'logout'%}?next={{request.path}}">Выйти</a></p>
         {% else %}
-            <p><a href="{% url 'login'%}?next={{request.path}}">Login</a></p>
+            <p><a href="{% url 'login'%}?next={{request.path}}">Войти</a></p>
         {% endif %}
     </div>
 
@@ -26,7 +26,7 @@
           {% if cart|length > 0 %}
             Ваша корзина:
             <a href="{% url 'cart:cart_detail' %}">
-              {{ total_items }} item{{ total_items|pluralize }},
+              {{ total_items }} Товар{{ total_items|pluralize:"ов" }},
               ${{ cart.get_total_price }}
             </a>
           {% else %}
