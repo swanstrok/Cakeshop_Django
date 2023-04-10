@@ -1,0 +1,21 @@
+{% extends "shop/base.html" %}
+
+{% block title %}Создание аккаунта{% endblock %}
+
+{% block content %}
+    <h1>Создание аккаунта</h1>
+    <p>Пожалуйста, введите данные используя форму ниже:</p>
+
+    <div class="form-error">{{ form.non_field_errors }}</div>
+
+    <form action="." method="post">
+        {% csrf_token %}
+
+        {% for f in form %}
+            <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+            <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+
+        <p><input type="submit" value="Создать"></p>
+    </form>
+{% endblock %}
