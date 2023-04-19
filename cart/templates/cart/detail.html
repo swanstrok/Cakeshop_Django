@@ -13,7 +13,7 @@
         <th>Изображение</th>
         <th>Название товара</th>
         <th>Количество</th>
-        <th>Убрать с корзины</th>
+        <th>Удалить из корзины</th>
         <th>Цена за штуку</th>
         <th>Цена</th>
       </tr>
@@ -36,14 +36,14 @@
                 {% csrf_token %}
               </form>
             </td>
-            <td><a href="{% url 'cart:cart_remove' product.id %}">Убрать</a></td>
+            <td><a href="{% url 'cart:cart_remove' product.id %}">Удалить</a></td>
             <td class="num">${{ item.price }}</td>
             <td class="num">${{ item.total_price }}</td>
           </tr>
         {% endwith %}
       {% endfor %}
       <tr class="total">
-        <td>Итого</td>
+        <td>Итого:</td>
         <td colspan="4"></td>
         <td class="num">${{ cart.get_total_price }}</td>
       </tr>
