@@ -22,8 +22,10 @@ class Order(models.Model):
 
 class OrderProduct(models.Model):
     """Модель каждого продукта в заказе"""
-    order = models.ForeignKey(to='Order', related_name='items', on_delete=models.CASCADE, verbose_name='Заказ')
-    product = models.ForeignKey(to=Product, related_name='order_products', on_delete=models.CASCADE, verbose_name='Товар')
+    order = models.ForeignKey(to='Order', related_name='items', on_delete=models.CASCADE,
+                              verbose_name='Заказ')
+    product = models.ForeignKey(to=Product, related_name='order_products', on_delete=models.CASCADE,
+                                verbose_name='Товар')
     quantity = models.PositiveIntegerField(default=1, verbose_name='Количество')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
 
