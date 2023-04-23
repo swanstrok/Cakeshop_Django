@@ -14,7 +14,7 @@ class CategoryAPIViewSet(viewsets.ModelViewSet):
 
 
 class ProductAPIViewSet(viewsets.ModelViewSet):
-    """Отображает все товароыи дает возможность оторажать их по одному"""
+    """Отображает все товары и дает возможность оторажать их по одному"""
     serializer_class = ProductSerializer
 
     def get_queryset(self):
