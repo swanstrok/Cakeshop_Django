@@ -34,7 +34,7 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True, verbose_name='Обновлено')
 
     class Meta:
-        ordering = ('name',)
+        ordering = ('name', 'id')
         index_together = (('id', 'slug'),)
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
