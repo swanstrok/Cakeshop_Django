@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/drf-auth/', include('rest_framework.urls')),
     path('api/users/', include('users.api.urls')),
     path('api/orders/', include('orders.api.urls')),
     path('api/', include('shop.api.urls')),
