@@ -4,6 +4,5 @@ from . import views
 app_name = 'orders'
 
 urlpatterns = [
-    path('api/', include('orders.api.urls')),
     path('', view=views.order_add, name='order_add'),
 ]
