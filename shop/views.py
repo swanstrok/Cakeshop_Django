@@ -7,26 +7,6 @@ from .models import Category, Product
 
 # Create your views here.
 
-# class ProductList(ListView):
-#     model = Product
-#     template_name = 'shop/product/list.html'
-#     context_object_name = 'products'
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['categories'] = Category.objects.all()
-#         if self.kwargs['category_slug']:
-#             context['category'] = get_object_or_404(Category, slug=self.kwargs['category_slug'])
-#         else:
-#             context['category'] = None
-#         return context
-#
-#     def get_queryset(self):
-#         if self.kwargs['category_slug']:
-#             return Product.objects.filter(available=True, category__slug=self.kwargs['category_slug'])
-#         else:
-#             return Product.objects.filter(available=True)
-
 def product_list(request, category_slug=None):
     """Функция отображает список доступных товаров"""
     categories = Category.objects.all()
