@@ -28,3 +28,21 @@ pip install requirements.txt
 ```
 
 ## Запуск проекта
+Для правильного запуска проекта требуется:
+- Запустить сервер
+```python
+python manage.py runserver
+```
+- Создать новый терминал и запустить в нем Redis
+```python
+redis-server
+```
+- Создать новый терминал и запустить в нем Celery
+```python
+celery -A src worker -l info
+```
+Для более комфортного отображения выполнения задач Celery в проект установлено приложение flower.
+Для его запуска в новом терминале следует прописать:
+```python
+celery -A src flower
+```
