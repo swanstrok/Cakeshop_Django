@@ -52,6 +52,7 @@ class Cart:
         return sum(item['quantity'] for item in self.cart.values())
 
     def get_total_price(self):
+        """Возвращает итоговую цену товаров"""
         return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
 
     def remove(self, product):

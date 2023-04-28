@@ -5,7 +5,7 @@ from .serializers import CategorySerializer, ProductSerializer
 
 
 class CategoryAPIViewSet(viewsets.ModelViewSet):
-    """Отображает все категории товаров и дает возможность оторажать их по одной"""
+    """Отображает api всех категорий товаров и дает возможность отображать их по одной"""
     serializer_class = CategorySerializer
 
     def get_queryset(self):
@@ -14,7 +14,8 @@ class CategoryAPIViewSet(viewsets.ModelViewSet):
 
 
 class ProductAPIViewSet(viewsets.ModelViewSet):
-    """Отображает все товары и дает возможность оторажать их по одному"""
+    """Отображает api всех товаров и дает возможность отображать их по одному.
+     С возможностью фильтрации по полям 'available' и 'category' и сортировки по полю 'id'"""
     serializer_class = ProductSerializer
     filterset_fields = ['available', 'category']
     ordering_fields = ['id']

@@ -9,6 +9,7 @@ from .tasks import order_created
 # Create your views here.
 @login_required
 def order_add(request):
+    """ Функция оформления заказа"""
     cart = Cart(request)
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
