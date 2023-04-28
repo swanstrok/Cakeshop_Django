@@ -8,6 +8,7 @@ from .models import Product, Category
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    """Регистрация в админке модели Product"""
     list_display = ['category', 'name', 'slug', 'image_show', 'description', 'price', 'stock',
                     'available', 'created', 'updated']
     list_filter = ['created', 'updated', 'available']
@@ -15,6 +16,7 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
     def image_show(self, obj):
+        """Функция для отображения в админке изображения товара а не его url"""
         if obj.image:
             return mark_safe("<img src='{}' width='60' />".format(obj.image.url))
         return "None"
@@ -22,5 +24,6 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
+    """Регистрация в админке модели Category"""
     list_display = ('name', 'slug')
     prepopulated_fields = {'slug': ('name',)}

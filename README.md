@@ -26,3 +26,5 @@ Email указывается при оформлении заказа.
 ```python
 pip install requirements.txt
 ```
+
+## Запуск проекта
