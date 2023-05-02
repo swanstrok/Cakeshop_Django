@@ -3,6 +3,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
+from .yasg import urlpatterns as swag_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # Админ
@@ -18,6 +19,10 @@ urlpatterns = [
     path('accounts/', include('users.urls')),  # url связанный с users-app
     path('', include('shop.urls', namespace='shop')),  # url связанный с shop-app
 ]
+
+# Добавление swagger-urls к urls (Через цикл т.к происходит конфликт из-за пустого пути к shop.urls)
+for i in swag_urls:
+    urlpatterns.insert(1, i)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
